@@ -19,7 +19,8 @@ class makeBoard(object):
 					"helpMethod": "Print function of specific method within makeBoard class: .helpMethod(method)"}
 	def getList(self):
 		return(self.board)
-		
+	def importList(self,list):
+		self.board = list
 	def printBoard(self):
 		columns = self.columns
 		rows = self.rows
