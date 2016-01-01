@@ -57,23 +57,29 @@ class makeBoard(object):
 					print("|  {}  |".format(hold[row][space]),end="")
 		print("")
 		
-	def printIndex(self,x,y):
+	def printIndex(self, xylist):
 		hold = self.board
+		x = xylist[0]
+		y = xylist[1]
 		re = hold[x][y]
 		place = ""
 		for i in range(len(re)):
 			if re[i] == " ":
 				re[i] = ""
 		print("Index[{0}][{1}]: {2}".format(x,y,re))
-	def getIndex(self, x,y):
+	def getIndex(self, xylist):
 		hold = self.board
+		x = xylist[0]
+		y = xylist[1]
 		re = hold[x][y]
 		for i in range(len(re)):
 			if re[i] == " ":
 				re[i] = ""
 		return(re)
-	def changeIndex(self,x,y,change):
+	def changeIndex(self,xylist,change):
 		hold = self.board
+		x = xylist[0]
+		y = xylist[1]
 		hold[x][y] = change
 		if len(change) > self.maxentry:
 			place = len(change) - self.maxentry
