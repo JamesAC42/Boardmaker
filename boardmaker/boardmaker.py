@@ -15,7 +15,7 @@ class makeBoard(object):
 					"printBoard": "Prints out a formatted board containing entries.",
 					"changeIndex": "Edit the value of specific location: .changeIndex([x,y], change)",
 					"printIndex": "Prints the value of specific location: .printIndex([x,y])",
-					"getIndex": "Returns the value of specific location.",
+					"getIndex": "Returns the value of specific location: .getIndex([x,y])",
 					"changeMaxLength": "Edit the maximum length of each subdivision. (For Formatting the printBoard method)",
 					"helpAll": "List all methods contained in makeBoard class.",
 					"helpMethod": "Print function of specific method within makeBoard class: .helpMethod(method)"}
