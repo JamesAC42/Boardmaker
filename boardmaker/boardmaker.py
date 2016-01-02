@@ -8,6 +8,7 @@ class makeBoard(object):
 		self.columns = columns
 		self.maxlength = 5
 		self.maxentry = 1
+		self.append = 2
 		self.entryLengths = [1]
 		self.methods = { "getList": "Returns the gameboard 2D List.",
 					"printBoard": "Prints out a formatted board container entries.",
@@ -46,7 +47,9 @@ class makeBoard(object):
 		for row in range(0,len(hold)):
 			for space in range(0,len(hold[row])):
 				if (space+1) % columns == 0:
-					print("|  {}  |".format(hold[row][space]))
+					append = self.append
+					append = maxlength - (2 + (len(hold[row][space])))
+					print("|  {}".format(hold[row][space]) + " "*append + "|")
 					if (row+1) == rows:
 						linebottom()
 						continue
@@ -54,7 +57,9 @@ class makeBoard(object):
 						linebottom()
 						linetop()
 				else:
-					print("|  {}  |".format(hold[row][space]),end="")
+					append = self.append
+					append = maxlength - (2 + len(hold[row][space]))
+					print("|  {}".format(hold[row][space]) + " "*append + "|", end="")
 		print("")
 		
 	def printIndex(self, xylist):
@@ -62,19 +67,12 @@ class makeBoard(object):
 		x = xylist[0]
 		y = xylist[1]
 		re = hold[x][y]
-		place = ""
-		for i in range(len(re)):
-			if re[i] == " ":
-				re[i] = ""
-		print("Index[{0}][{1}]: {2}".format(x,y,re))
+		print(re)
 	def getIndex(self, xylist):
 		hold = self.board
 		x = xylist[0]
 		y = xylist[1]
 		re = hold[x][y]
-		for i in range(len(re)):
-			if re[i] == " ":
-				re[i] = ""
 		return(re)
 	def changeIndex(self,xylist,change):
 		hold = self.board
@@ -90,9 +88,8 @@ class makeBoard(object):
 					if x == row and y == col:
 						continue
 					else:
-						hold[row][col] += ' '*place
+						self.append += place
 		self.board = hold
-		print("Index[{0}][{1}] changed to ..{2}..".format(x,y,change))
 		
 	def changeMaxLength(self):
 		while True:
@@ -123,16 +120,4 @@ class makeBoard(object):
 		else:
 			print("Method not found")
 		print("")
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
