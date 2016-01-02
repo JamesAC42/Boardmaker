@@ -10,12 +10,13 @@ class makeBoard(object):
 		self.maxentry = 1
 		self.append = 2
 		self.entryLengths = [1]
-		self.methods = { "getList": "Returns the gameboard 2D List.",
-					"printBoard": "Prints out a formatted board container entries.",
-					"changeIndex": "Edit the value of specific location: .changeIndex(x,y, change)",
-					"printIndex": "Prints the value of specific location: .printIndex(x,y)",
+		self.methods = { "getList": "Returns the 2D List.",
+					"importList": "Import a custom 2D list instead of using constructer.",
+					"printBoard": "Prints out a formatted board containing entries.",
+					"changeIndex": "Edit the value of specific location: .changeIndex([x,y], change)",
+					"printIndex": "Prints the value of specific location: .printIndex([x,y])",
 					"getIndex": "Returns the value of specific location.",
-					"changeMaxLength": "Edit the maximum length of each subdivision. (For Formatting printBoard method)",
+					"changeMaxLength": "Edit the maximum length of each subdivision. (For Formatting the printBoard method)",
 					"helpAll": "List all methods contained in makeBoard class.",
 					"helpMethod": "Print function of specific method within makeBoard class: .helpMethod(method)"}
 	def getList(self):
