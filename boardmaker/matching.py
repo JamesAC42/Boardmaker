@@ -87,8 +87,9 @@ def game():
 			x = 0
 			display_values = board_display.getList()
 			for i in chain(display_values):
-				if i !== "":
-					x = x + 1
+				for n in chain(i):
+					if n != "":
+						x = x + 1
 			if x == 16:
 				print("You Win!")
 				while True:
