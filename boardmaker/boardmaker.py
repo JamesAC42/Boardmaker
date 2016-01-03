@@ -2,14 +2,14 @@ class makeBoard(object):
 	def __init__(self,rows,columns):
 		hold = []
 		for i in range(rows):
-			hold.append([" "]*columns)
+			hold.append([""]*columns)
 		self.board = hold
 		self.rows = rows
 		self.columns = columns
 		self.maxlength = 5
-		self.maxentry = 1
+		self.maxentry = 0
 		self.append = 2
-		self.entryLengths = [1]
+		self.entryLengths = [0]
 		self.methods = { "getList": "Returns the 2D List.",
 					"importList": "Import a custom 2D list instead of using constructer.",
 					"printBoard": "Prints out a formatted board containing entries.",
