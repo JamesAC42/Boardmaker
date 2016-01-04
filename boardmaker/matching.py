@@ -77,7 +77,7 @@ def game():
 			else:
 				break
 		guess2_value = values[guess2[0]][guess2[1]]	
-		board_display.changeIndex(guess2,guess2_value)
+		board_display.changeIndex(guess2, guess2_value)
 		board_display.printBoard()
 		
 		sleep(1)
