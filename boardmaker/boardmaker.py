@@ -48,9 +48,16 @@ class makeBoard(object):
 		for row in range(0,len(hold)):
 			for space in range(0,len(hold[row])):
 				if (space+1) % columns == 0:
-					append = self.append
-					append = maxlength - (2 + (len(hold[row][space])))
-					print("|  {}".format(hold[row][space]) + " "*append + "|")
+					append = maxlength - len(hold[row][space])
+					if append % 2 == 0:
+						append1 = int(append/2)
+						append2 = int(append/2)
+					else:
+						convert = append+1
+						append1 = int((convert/2)-1)
+						append2 = int(convert/2)
+					l = (("|") + (" "*append1) + ("{}".format(hold[row][space])) + (" "*append2) + ("|"))
+					print(l)
 					if (row+1) == rows:
 						linebottom()
 						continue
@@ -58,9 +65,16 @@ class makeBoard(object):
 						linebottom()
 						linetop()
 				else:
-					append = self.append
-					append = maxlength - (2 + len(hold[row][space]))
-					print("|  {}".format(hold[row][space]) + " "*append + "|", end="")
+					append = maxlength - len(hold[row][space])
+					if append % 2 == 0:
+						append1 = int(append/2)
+						append2 = int(append/2)
+					else:
+						convert = append+1
+						append1 = int((convert/2)-1)
+						append2 = int(convert/2)
+					l = (("|") + (" "*append1) + ("{}".format(hold[row][space])) + (" "*append2) + ("|"))
+					print(l,end="")
 		print("")
 		
 	def printIndex(self, xylist):
