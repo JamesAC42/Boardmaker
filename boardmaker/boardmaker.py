@@ -9,7 +9,6 @@ class makeBoard(object):
 		self.maxlength = 5
 		self.maxentry = 0
 		self.append = 2
-		self.entryLengths = [0]
 		self.methods = { "getList": "Returns the 2D List.",
 					"importList": "Import a custom 2D list instead of using constructer.",
 					"printBoard": "Prints out a formatted board containing entries.",
