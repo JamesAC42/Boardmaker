@@ -6,18 +6,19 @@ class makeBoard(object):
 		self.board = hold
 		self.rows = rows
 		self.columns = columns
-		self.maxlength = 5
 		self.maxentry = 0
 		self.append = 2
+		self.entries = []
 		self.methods = { "getList": "Returns the 2D List.",
 					"importList": "Import a custom 2D list instead of using constructer.",
 					"printBoard": "Prints out a formatted board containing entries.",
 					"changeIndex": "Edit the value of specific location: .changeIndex([x,y], change)",
 					"printIndex": "Prints the value of specific location: .printIndex([x,y])",
 					"getIndex": "Returns the value of specific location: .getIndex([x,y])",
-					"changeMaxLength": "Edit the maximum length of each subdivision. (For Formatting the printBoard method)",
+					"clearBoard": "Clears the entire board",
 					"helpAll": "List all methods contained in makeBoard class.",
 					"helpMethod": "Print function of specific method within makeBoard class: .helpMethod(method)"}
+					
 	def getList(self):
 		return(self.board)
 	def importList(self,list):
@@ -25,8 +26,18 @@ class makeBoard(object):
 	def printBoard(self):
 		columns = self.columns
 		rows = self.rows
-		maxlength = self.maxlength
 		hold = self.board
+		
+		maxlength = 0
+		for row in range(0,len(hold)):
+			for space in range(0, len(hold[row])):
+				current_length = len(str(hold[row][space]))
+				if current_length > maxlength:
+					maxlength = current_length
+				else:
+					continue
+					
+		maxlength = maxlength + 4
 		
 		def linetop():
 			for space in range(columns-1):
@@ -47,7 +58,7 @@ class makeBoard(object):
 		for row in range(0,len(hold)):
 			for space in range(0,len(hold[row])):
 				if (space+1) % columns == 0:
-					append = maxlength - len(hold[row][space])
+					append = maxlength - len(str(hold[row][space]))
 					if append % 2 == 0:
 						append1 = int(append/2)
 						append2 = int(append/2)
@@ -64,7 +75,7 @@ class makeBoard(object):
 						linebottom()
 						linetop()
 				else:
-					append = maxlength - len(hold[row][space])
+					append = maxlength - len(str(hold[row][space]))
 					if append % 2 == 0:
 						append1 = int(append/2)
 						append2 = int(append/2)
@@ -104,18 +115,12 @@ class makeBoard(object):
 					else:
 						self.append += place
 		self.board = hold
-		
-	def changeMaxLength(self):
-		while True:
-			length = input("$: ")
-			try:
-				length = int(length)
-				break
-			except ValueError:
-				print("Length entry must be type (Int)")
-				
-		self.maxlength = length
-		print("Max Length changed to ..{}..".format(length))
+	def clearBoard(self):
+		hold = self.board
+		for row in range(0,len(hold)):
+			for space in range(0,len(hold[row])):
+				hold[row][space] = ""
+		self.board = hold
 	def helpAll(self):
 		methods = self.methods
 		print("")
@@ -134,4 +139,35 @@ class makeBoard(object):
 		else:
 			print("Method not found")
 		print("")
+		
+
+def toBoard(new_list):
+	if isinstance(new_list, list):
+		pass
+	else:
+		print("Argument must be 2 dimensional list")
+		return
+	for row in new_list:
+		if isinstance(row,list):
+			continue
+		else:
+			print("Argument must be a 2 dimensional list")
+			return
+	check = len(new_list[0])
+	for row in new_list:
+		if len(row) != check:
+			print("Argument must not be jagged")
+			return
+		else:
+			continue
+	rows = len(new_list)
+	columns = len(new_list[0])
+	new_board = makeBoard(rows,columns)
+	new_board.importList(new_list)
+	return new_board
+		
+		
+		
+		
+		
 		
