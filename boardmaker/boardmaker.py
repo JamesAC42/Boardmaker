@@ -8,7 +8,6 @@ class makeBoard(object):
 		self.columns = columns
 		self.maxentry = 0
 		self.append = 2
-		self.entries = []
 		self.methods = { "getList": "Returns the 2D List.",
 					"importList": "Import a custom 2D list instead of using constructer.",
 					"printBoard": "Prints out a formatted board containing entries.",
@@ -21,8 +20,29 @@ class makeBoard(object):
 					
 	def getList(self):
 		return(self.board)
-	def importList(self,list):
-		self.board = list
+	def importList(self,new_list):
+		if isinstance(new_list, list):
+			pass
+		else:
+			print("Argument must be 2 dimensional list")
+			return
+		for row in new_list:
+			if isinstance(row,list):
+				continue
+			else:
+				print("Argument must be a 2 dimensional list")
+				return
+		check = len(new_list[0])
+		for row in new_list:
+			if len(row) != check:
+				print("Argument must not be jagged")
+				return
+			else:
+				continue
+		self.rows = len(new_list)
+		self.columns = len(new_list[0])
+		self.append = 2
+		self.board = new_list
 	def printBoard(self):
 		columns = self.columns
 		rows = self.rows

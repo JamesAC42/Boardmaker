@@ -4,7 +4,10 @@ from time import sleep
 from itertools import chain
 
 def game():
-	board_display = makeBoard(4,4)
+	board_list = []
+	for i in range(4):
+		board_list.append([" "]*4)
+	board_display = toBoard(board_list)
 
 	values = list("ABCDEFGH") * 2
 	shuffle(values)
@@ -57,7 +60,7 @@ def game():
 		board_display.printBoard()
 		while True:
 			guess1 = guess()
-			if board_display.getIndex(guess1) != "":
+			if board_display.getIndex(guess1) != " ":
 				print("Space already matched.")
 				continue
 			else:
@@ -71,7 +74,7 @@ def game():
 			if guess2 == guess1:
 				print("Invalid. You already guessed that.")
 				continue
-			elif board_display.getIndex(guess2) != "":
+			elif board_display.getIndex(guess2) != " ":
 				print("Space already matched.")
 				continue
 			else:
@@ -88,7 +91,7 @@ def game():
 			display_values = board_display.getList()
 			for i in chain(display_values):
 				for n in chain(i):
-					if n != "":
+					if n != " ":
 						x = x + 1
 			if x == 16:
 				print("You Win!")
@@ -104,8 +107,8 @@ def game():
 						print("Invalid response")
 		else:
 			print("NO MATCH")
-			board_display.changeIndex(guess1, "")
-			board_display.changeIndex(guess2, "")
+			board_display.changeIndex(guess1, " ")
+			board_display.changeIndex(guess2, " ")
 		if stop == True:
 			break
 	
