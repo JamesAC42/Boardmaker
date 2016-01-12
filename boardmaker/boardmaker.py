@@ -21,6 +21,7 @@ class makeBoard(object):
 	def getList(self):
 		return(self.board)
 	def importList(self,new_list):
+		hold = list()
 		if isinstance(new_list, list):
 			pass
 		else:
@@ -28,21 +29,24 @@ class makeBoard(object):
 			return
 		for row in new_list:
 			if isinstance(row,list):
-				continue
+				pass
 			else:
 				print("Argument must be a 2 dimensional list")
 				return
-		check = len(new_list[0])
 		for row in new_list:
-			if len(row) != check:
-				print("Argument must not be jagged")
+			if len(row) > self.columns:
+				print("New list cannot require more space than is available.\nRows: {0}, Columns: {1}".format(self.rows,self.columns))
 				return
-			else:
-				continue
+		if len(new_list) > self.rows:
+			print("New list cannot require more space than is available.\nRows: {0}, Columns: {1}".format(self.rows,self.columns))
+			return
+		
+		self.clearBoard()
+		
+		self.board = new_list
 		self.rows = len(new_list)
 		self.columns = len(new_list[0])
 		self.append = 2
-		self.board = new_list
 	def printBoard(self):
 		columns = self.columns
 		rows = self.rows
@@ -140,6 +144,56 @@ class makeBoard(object):
 		for row in range(0,len(hold)):
 			for space in range(0,len(hold[row])):
 				hold[row][space] = ""
+		self.board = hold
+	def addRow(self, amt):
+		hold = self.board
+		try:
+			amt = int(amt)
+		except ValueError:
+			print("Argument must be integer")
+			return
+		for i in range(amt):
+			self.rows = self.rows + 1
+			hold.append([""]*self.columns)
+		self.board = hold
+	def removeRow(self, amt):
+		hold = self.board
+		try:
+			amt = int(amt)
+		except ValueError:
+			print("Argument must be integer")
+			return
+		for i in range(amt):
+			hold.pop()
+			self.rows = self.rows - 1
+		self.board = hold
+	def addColumn(self, amt):
+		hold = self.board
+		try:
+			amt = int(amt)
+		except ValueError:
+			print("Argument must be integer")
+			return
+		for i in range(amt):
+			self.columns = self.columns + 1
+			for row in range(0,len(hold)):
+				place = hold[row]
+				place.append("")
+				hold[row] = place
+		self.board = hold
+	def removeColumn(self, amt):
+		hold = self.board
+		try:
+			amt = int(amt)
+		except ValueError:
+			print("Argument must be integer")
+			return
+		for i in range(amt):
+			self.columns = self.columns - 1
+			for row in range(0, len(hold)):
+				place = hold[row]
+				place.pop()
+				hold[row] = place
 		self.board = hold
 	def helpAll(self):
 		methods = self.methods
