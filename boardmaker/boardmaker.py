@@ -14,6 +14,7 @@ class makeBoard(object):
 					"changeIndex": "Edit the value of specific location: .changeIndex([x,y], change)",
 					"printIndex": "Prints the value of specific location: .printIndex([x,y])",
 					"getIndex": "Returns the value of specific location: .getIndex([x,y])",
+					"removeIndex": "Removes the given index",
 					"clearBoard": "Clears the entire board",
 					"helpAll": "List all methods contained in makeBoard class.",
 					"helpMethod": "Print function of specific method within makeBoard class: .helpMethod(method)"}
@@ -144,6 +145,27 @@ class makeBoard(object):
 		x = xylist[0]
 		y = xylist[1]
 		hold[x][y] = ''
+		self.board = hold
+	def switchIndices(self, xylist_one, xylist_two):
+		hold = self.board
+		x_one = xylist_one[0]
+		y_one = xylist_one[1]
+		hold_one = hold[x_one][y_one]
+		x_two = xylist_two[0]
+		y_two = xylist_two[1]
+		hold_two = hold[x_two][y_two]
+		hold[x_one][y_one] = hold_two
+		hold[x_two][y_two] = hold_one
+		self.board = hold
+	def moveIndex(self, xylist, xylist_target):
+		hold = self.board
+		x_one = xylist[0]
+		y_one = xylist[1]
+		hold_one = hold[x_one][y_one]
+		x_target = xylist_target[0]
+		y_target = xylist_target[1]
+		hold[x_target][y_target] = hold_one
+		hold[x_one][y_one] =  ""
 		self.board = hold
 	def clearBoard(self):
 		hold = self.board
