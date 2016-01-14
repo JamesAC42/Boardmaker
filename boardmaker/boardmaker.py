@@ -139,6 +139,12 @@ class makeBoard(object):
 					else:
 						self.append += place
 		self.board = hold
+	def removeIndex(self, xylist):
+		hold = self.board
+		x = xylist[0]
+		y = xylist[1]
+		hold[x][y] = ''
+		self.board = hold
 	def clearBoard(self):
 		hold = self.board
 		for row in range(0,len(hold)):
