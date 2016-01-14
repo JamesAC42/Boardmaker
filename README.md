@@ -1,16 +1,18 @@
 # Boardmaker
-Boardmaker module in python
+Python 3 Module
 
-Create `2D lists` that can be manipulated and displayed in a tidy format with ease.
+_[My Page](http://jamesac42.github.io/Boardmaker)_
 
-Useful for spreadsheets, charts, games, user-interactions, and overall aestetic storage.
+Create 2D lists that can be manipulated and displayed in a tidy format.
+
+Useful for spreadsheets, charts, games, user-interactions, and an overall aestetically pleasing interface.
 
 #### `makeBoard` class 
-  - Will create an empty list with custom dimensions.
+  - Creates an empty list with custom dimensions.
   - **Attributes**
 	- Automatic formatting for printing the list
 	- Add and remove rows
-	- Change/ `Return`/ delete data
+	- Edit, return, print, and delete data
 	- Return the data list for bulk manipulation
 	- Import pre-filled lists
 	
