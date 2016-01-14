@@ -37,22 +37,24 @@
 <h2>
 <a id="chart-with-ease" class="anchor" href="#chart-with-ease" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chart with Ease</h2>
 
-<p>Create <code>2D lists</code> that can be manipulated and displayed in a nice, tidy format.</p>
+<p>Create `2D lists that can be manipulated and displayed in a nice, tidy format.</p>
 
 <p>Useful for spreadsheets, charts, games, user-interactions, and an overall aesthetically pleasing layout.</p>
 
 <h3>
 <a id="makeboard-class" class="anchor" href="#makeboard-class" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>makeBoard</code> class</h3>
 
-<ul>
-<li>Create an empty 2D list with custom dimensions
-&gt;&gt;&gt;my_board = makeBoard(3,3)</li>
-</ul>
+<pre><code>- Create an empty 2D list with custom dimensions.
+</code></pre>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span>my_board <span class="pl-k">=</span> makeBoard(<span class="pl-c1">3</span>,<span class="pl-c1">3</span>)
+<span class="pl-k">&gt;&gt;&gt;</span></pre></div>
 
 <h3>
 <a id="what-does-it-do" class="anchor" href="#what-does-it-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it do?</h3>
 
-<p>-Automatic formatting for printing the data in an even layout.</p>
+<pre><code>-Automatic formatting for printing the data in an even layout, changing size to fit the data.
+</code></pre>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
  ____  ____  ____
@@ -66,12 +68,114 @@
  ____  ____  ____
 <span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
 <span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
-<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span></pre></div>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span></pre></div>
 
-<p>-Add and remove rows
--Change/ <code>Return</code>/ delete data
--Return the data list for bulk manipulation
--Import pre-filled lists</p>
+<pre><code>-Add and remove rows and columns.
+</code></pre>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span>my_board.addRow(<span class="pl-c1">1</span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.addColumn(<span class="pl-c1">3</span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
+ ____  ____  ____  ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+ ____  ____  ____  ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+ ____  ____  ____  ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+ ____  ____  ____  ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.removeRow(<span class="pl-c1">1</span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.removeColumn(<span class="pl-c1">3</span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
+ ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+ ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+ ____  ____  ____
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>    <span class="pl-k">||</span>    <span class="pl-k">||</span>    <span class="pl-k">|</span>
+<span class="pl-k">|</span>____<span class="pl-k">||</span>____<span class="pl-k">||</span>____<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span></pre></div>
+
+<pre><code>-Edit, return, print, and delete data through the use of simple coordinates.
+</code></pre>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span>my_board.changeIndex([<span class="pl-c1">1</span>,<span class="pl-c1">1</span>],<span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-pds">"</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
+ __________  __________  __________
+<span class="pl-k">|</span>          <span class="pl-k">||</span>          <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>          <span class="pl-k">||</span>          <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>__________<span class="pl-k">||</span>__________<span class="pl-k">||</span>__________<span class="pl-k">|</span>
+ __________  __________  __________
+<span class="pl-k">|</span>          <span class="pl-k">||</span>          <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>          <span class="pl-k">||</span>  Hello!  <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>__________<span class="pl-k">||</span>__________<span class="pl-k">||</span>__________<span class="pl-k">|</span>
+ __________  __________  __________
+<span class="pl-k">|</span>          <span class="pl-k">||</span>          <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>          <span class="pl-k">||</span>          <span class="pl-k">||</span>          <span class="pl-k">|</span>
+<span class="pl-k">|</span>__________<span class="pl-k">||</span>__________<span class="pl-k">||</span>__________<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printIndex([<span class="pl-c1">1</span>,<span class="pl-c1">1</span>])
+Hello!
+<span class="pl-k">&gt;&gt;&gt;</span>value <span class="pl-k">=</span> my_board.getIndex([<span class="pl-c1">1</span>,<span class="pl-c1">1</span>])
+<span class="pl-k">&gt;&gt;&gt;</span><span class="pl-k">print</span>(value)
+Hello!
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.removeIndex([<span class="pl-c1">1</span>,<span class="pl-c1">1</span>])
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printIndex([<span class="pl-c1">1</span>,<span class="pl-c1">1</span>])
+
+<span class="pl-k">&gt;&gt;&gt;</span></pre></div>
+
+<pre><code>-Return the data list for bulk manipulation
+-Import existing lists
+</code></pre>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span>values <span class="pl-k">=</span> [x <span class="pl-k">for</span> x <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">10</span>)]
+<span class="pl-k">&gt;&gt;&gt;</span>data <span class="pl-k">=</span> [values[x:x<span class="pl-k">+</span><span class="pl-c1">3</span>] <span class="pl-k">for</span> x <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">0</span>, <span class="pl-c1">len</span>(values), <span class="pl-c1">3</span>)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.importList(data)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
+ _____  _____  _____
+<span class="pl-k">|</span>     <span class="pl-k">||</span>     <span class="pl-k">||</span>     <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">1</span>  <span class="pl-k">||</span>  <span class="pl-c1">2</span>  <span class="pl-k">||</span>  <span class="pl-c1">3</span>  <span class="pl-k">|</span>
+<span class="pl-k">|</span>_____<span class="pl-k">||</span>_____<span class="pl-k">||</span>_____<span class="pl-k">|</span>
+ _____  _____  _____
+<span class="pl-k">|</span>     <span class="pl-k">||</span>     <span class="pl-k">||</span>     <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">4</span>  <span class="pl-k">||</span>  <span class="pl-c1">5</span>  <span class="pl-k">||</span>  <span class="pl-c1">6</span>  <span class="pl-k">|</span>
+<span class="pl-k">|</span>_____<span class="pl-k">||</span>_____<span class="pl-k">||</span>_____<span class="pl-k">|</span>
+ _____  _____  _____
+<span class="pl-k">|</span>     <span class="pl-k">||</span>     <span class="pl-k">||</span>     <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">7</span>  <span class="pl-k">||</span>  <span class="pl-c1">8</span>  <span class="pl-k">||</span>  <span class="pl-c1">9</span>  <span class="pl-k">|</span>
+<span class="pl-k">|</span>_____<span class="pl-k">||</span>_____<span class="pl-k">||</span>_____<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span>edit <span class="pl-k">=</span> my_board.getList()
+<span class="pl-k">&gt;&gt;&gt;</span>new_data <span class="pl-k">=</span> []
+<span class="pl-k">&gt;&gt;&gt;</span><span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">len</span>(edit)):
+...    new_data.append([x<span class="pl-k">*</span>x <span class="pl-k">for</span> x <span class="pl-k">in</span> edit[i]])
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.importList(new_data)
+<span class="pl-k">&gt;&gt;&gt;</span>my_board.printBoard()
+ ______  ______  ______
+<span class="pl-k">|</span>      <span class="pl-k">||</span>      <span class="pl-k">||</span>      <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">1</span>   <span class="pl-k">||</span>  <span class="pl-c1">4</span>   <span class="pl-k">||</span>  <span class="pl-c1">9</span>   <span class="pl-k">|</span>
+<span class="pl-k">|</span>______<span class="pl-k">||</span>______<span class="pl-k">||</span>______<span class="pl-k">|</span>
+ ______  ______  ______
+<span class="pl-k">|</span>      <span class="pl-k">||</span>      <span class="pl-k">||</span>      <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">16</span>  <span class="pl-k">||</span>  <span class="pl-c1">25</span>  <span class="pl-k">||</span>  <span class="pl-c1">36</span>  <span class="pl-k">|</span>
+<span class="pl-k">|</span>______<span class="pl-k">||</span>______<span class="pl-k">||</span>______<span class="pl-k">|</span>
+ ______  ______  ______
+<span class="pl-k">|</span>      <span class="pl-k">||</span>      <span class="pl-k">||</span>      <span class="pl-k">|</span>
+<span class="pl-k">|</span>  <span class="pl-c1">49</span>  <span class="pl-k">||</span>  <span class="pl-c1">64</span>  <span class="pl-k">||</span>  <span class="pl-c1">81</span>  <span class="pl-k">|</span>
+<span class="pl-k">|</span>______<span class="pl-k">||</span>______<span class="pl-k">||</span>______<span class="pl-k">|</span>
+<span class="pl-k">&gt;&gt;&gt;</span></pre></div>
 
 <h4>
 <a id="toboard-function" class="anchor" href="#toboard-function" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>toBoard</code> function</h4>
