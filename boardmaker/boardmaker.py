@@ -14,6 +14,8 @@ class makeBoard(object):
 					"changeIndex": "Edit the value of specific location: .changeIndex([x,y], change)",
 					"printIndex": "Prints the value of specific location: .printIndex([x,y])",
 					"getIndex": "Returns the value of specific location: .getIndex([x,y])",
+					"moveIndex": "Move the value of one index to another position: .moveIndex([x,y],[x,y])",
+					"switchIndices": "Switch the values of two indices: .switchIndices([x,y],[x,y])",
 					"removeIndex": "Removes the given index",
 					"clearBoard": "Clears the entire board",
 					"helpAll": "List all methods contained in makeBoard class.",
