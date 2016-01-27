@@ -225,6 +225,71 @@ class makeBoard(object):
 				place.pop()
 				hold[row] = place
 		self.board = hold
+	def returnRow(self,x):
+		hold = self.board
+		return(hold[x])
+	def returnColumn(self,y):
+		hold = self.board
+		col_list = list()
+		for i in range(0,len(hold)):
+			col_list.append(hold[i][y])
+		return(col_list)
+	def insertRow(self,x,amt):
+		hold = self.board
+		x = x + 1
+		hippo = [""] * self.columns
+		self.rows = self.rows + amt
+		for i in range(0, amt):
+			hold.insert(x,hippo)
+		self.board = hold
+	def insertColumn(self,y, amt):
+		hold = self.board
+		self.columns = self.columns + amt
+		for i in range(0, amt):
+			for row in range(0,len(hold)):
+				hold[row] = hold[row][:y] + [""] + hold[row][y:]
+		self.board = hold	
+	def importRow(self, x, row_list):
+		hold = self.board
+		if isinstance(row_list, list):
+			pass
+		else:
+			print("List argument must be list")
+			return
+		if len(row_list) > self.columns:
+			div = len(row_list) - self.columns
+			for row in hold:
+				for i in range(0,div):	
+					row.append("")
+			self.columns = len(row_list)
+		elif len(row_list) < self.columns:
+			div = self.columns - len(row_list)
+			for i in range(0,div):
+				row_list.append("")
+		else:
+			pass
+		hold[x] = row_list
+		self.board = hold
+	def importColumn(self, y, col_list):
+		hold = self.board
+		if isinstance(col_list, list):
+			pass
+		else:
+			print("List argument must be list")
+			return
+		if len(col_list) > self.rows:
+			div = len(col_list) - self.rows
+			for i in range(0,div):
+				hold.append([""]*self.columns)
+			self.rows = len(col_list)
+		elif len(col_list) < self.rows:
+			div = self.rows - len(col_list)
+			for i in range(0,div):
+				col_list.append("")
+		else:
+			pass
+		for row in range(0,self.rows):
+			hold[row][y] = col_list[row]
 	def helpAll(self):
 		methods = self.methods
 		print("")
@@ -257,11 +322,18 @@ def toBoard(new_list):
 		else:
 			print("Argument must be a 2 dimensional list")
 			return
-	check = len(new_list[0])
+	max = 0
 	for row in new_list:
-		if len(row) != check:
-			print("Argument must not be jagged")
-			return
+		if len(row) > max:
+			max = len(row)
+	for r in range(0,len(new_list)):
+		row = new_list[r]
+		if len(row) < max:
+			div = max - len(row)
+			for i in range(0,div):
+				row.append("")
+				new_list[r] = row
+			continue
 		else:
 			continue
 	rows = len(new_list)
