@@ -4,10 +4,9 @@ from time import sleep
 from itertools import chain
 
 def game():
-	board_list = []
-	for i in range(4):
-		board_list.append([" "]*4)
-	board_display = toBoard(board_list)
+	
+	board_display = makeBoard(4,4)
+	board_display.fillBoard(" ")
 
 	values = list("ABCDEFGH") * 2
 	shuffle(values)

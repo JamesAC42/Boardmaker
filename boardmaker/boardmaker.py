@@ -175,6 +175,12 @@ class makeBoard(object):
 			for space in range(0,len(hold[row])):
 				hold[row][space] = ""
 		self.board = hold
+	def fillBoard(self, value):
+		hold = self.board
+		for row in range(0,len(hold)):
+			for space in range(0, len(hold[row])):
+				hold[row][space] = value
+		self.board = hold
 	def addRow(self, amt):
 		hold = self.board
 		try:
@@ -249,7 +255,7 @@ class makeBoard(object):
 			for row in range(0,len(hold)):
 				hold[row] = hold[row][:y] + [""] + hold[row][y:]
 		self.board = hold	
-	def importRow(self, x, row_list):
+	def importRow(self, x, row_list, overwrite):
 		hold = self.board
 		if isinstance(row_list, list):
 			pass
@@ -268,9 +274,17 @@ class makeBoard(object):
 				row_list.append("")
 		else:
 			pass
-		hold[x] = row_list
+		for space in range(0,self.columns):
+			if overwrite == True:
+				hold[x] = row_list
+				break
+			else:
+				if hold[x][space] == "":
+					hold[x][space] = row_list[space]
+				else:
+					continue
 		self.board = hold
-	def importColumn(self, y, col_list):
+	def importColumn(self, y, col_list, overwrite):
 		hold = self.board
 		if isinstance(col_list, list):
 			pass
@@ -289,7 +303,15 @@ class makeBoard(object):
 		else:
 			pass
 		for row in range(0,self.rows):
-			hold[row][y] = col_list[row]
+			if overwrite == True:
+				hold[row][y] = col_list[row]
+				continue
+			else:
+				if hold[row][y] == "":
+					hold[row][y] = col_list[row]
+				else:
+					continue
+		self.board = hold
 	def helpAll(self):
 		methods = self.methods
 		print("")
