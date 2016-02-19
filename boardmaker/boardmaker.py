@@ -255,7 +255,7 @@ class makeBoard(object):
 			for row in range(0,len(hold)):
 				hold[row] = hold[row][:y] + [""] + hold[row][y:]
 		self.board = hold	
-	def importRow(self, x, row_list, overwrite):
+	def importRow(self, x, row_list, overwrite=False):
 		hold = self.board
 		if isinstance(row_list, list):
 			pass
@@ -284,7 +284,7 @@ class makeBoard(object):
 				else:
 					continue
 		self.board = hold
-	def importColumn(self, y, col_list, overwrite):
+	def importColumn(self, y, col_list, overwrite=False):
 		hold = self.board
 		if isinstance(col_list, list):
 			pass
