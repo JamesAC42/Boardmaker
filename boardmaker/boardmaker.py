@@ -1,3 +1,6 @@
+import openpyxl
+from openpyxl.cell import get_column_letter, column_index_from_string
+
 class makeBoard(object):
 	def __init__(self,rows,columns):
 		hold = []
@@ -364,8 +367,4 @@ def toBoard(new_list):
 	new_board.importList(new_list)
 	return new_board
 		
-		
-		
-		
-		
-		
+#def toNewExcel(board, filename, sheetname="Boardmaker", path="C:/BoardmakerExcelDefault/"):
