@@ -35,24 +35,16 @@ def game():
 				
 		if spot < 5:
 			coordinates.append(0)
-			for i in range(0,4):
-				if spot == one[i]:
-					coordinates.append(i)
+			coordinates.append(one.index(spot))
 		elif spot < 9:
 			coordinates.append(1)
-			for i in range(0,4):
-				if spot == two[i]:
-					coordinates.append(i)
+			coordinates.append(two.index(spot))
 		elif spot < 13:
 			coordinates.append(2)
-			for i in range(0,4):
-				if spot == three[i]:
-					coordinates.append(i)
+			coordinates.append(three.index(spot))
 		else:
 			coordinates.append(3)
-			for i in range(0,4):
-				if spot == four[i]:
-					coordinates.append(i)
+			coordinates.append(four.index(spot))
 		return coordinates
 
 	while True:
